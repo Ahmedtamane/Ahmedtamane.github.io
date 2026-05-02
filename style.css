@@ -137,10 +137,6 @@ a:hover {
 }
 
 /* RIGHT (TEXT) */
-.header-right h1 {
-    font-size: 2.8rem;
-    margin: 0;
-}
 
 .header-right h3 {
     font-size: 1.3rem;
@@ -148,13 +144,9 @@ a:hover {
     margin: 0;
     font-weight: 500;
     letter-spacing: 0.3px;
+    text-align: center;
 }
 
-.header-right p {
-    font-size: 1rem;
-    opacity: 0.85;
-    margin: 0;
-}
 
 .header-right {
     flex: 1;
@@ -166,10 +158,6 @@ a:hover {
     line-height: 0.8;   /* tighter text */
 }
 
-/* LINKS STYLE */
-.header-right p {
-    margin: 5px 0;
-}
 
 #header {
     padding: 30px;
