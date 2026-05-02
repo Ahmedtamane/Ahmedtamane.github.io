@@ -1,0 +1,281 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #333;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #0f172a
+    );
+
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* sections */
+section {
+    margin: 40px 0;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    color: #1e293b;
+    border-bottom: 2px solid #3b82f6;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* ===== HEADER ===== */
+#header {
+    transition: transform 0.3s ease;
+}
+
+#header:hover {
+    transform: translateY(-5px);
+}
+#header {
+    padding: 30px;
+    background: rgba(30, 41, 59, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    color: white;
+}
+
+/* FLEX CONTAINER */
+.header-container {
+    display: flex;
+    align-items: center;
+    width: auto;
+    gap: 60px;
+}
+
+/* LEFT SECTION (IMAGE + NAME) */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* LEFT (IMAGE) */
+.header-left img {
+    width: 300px;   /* increased size */
+    height: 300px;
+
+    object-fit: cover;
+    object-position: top;   /* focus on top of image */
+    border-radius: 50%;
+
+    border: 5px solid #1f4788;
+    box-shadow: 0 0 35px rgba(31, 71, 136, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.header-left img:hover {
+    transform: scale(1.05);
+}
+
+/* NAME STYLING */
+.name {
+    text-align: center;
+}
+
+.name h1 {
+    font-size: 2.2rem;
+    color:  #3b82f6;;
+    margin: 0;
+}
+
+
+a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #60a5fa;
+}
+
+.about-links {
+    margin-top: 15px;
+}
+
+.about-links p {
+    margin: 8px 0;
+    font-weight: 500;
+}
+.about-links a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.about-links a:hover {
+    text-decoration: underline;
+}
+
+/* RIGHT (TEXT) */
+.header-right h1 {
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+.header-right h3 {
+    font-size: 1.3rem;
+    color: #93c5fd;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.header-right p {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin: 0;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+
+    gap: 10px;          /* controls spacing between lines */
+    line-height: 0.8;   /* tighter text */
+}
+
+/* LINKS STYLE */
+.header-right p {
+    margin: 5px 0;
+}
+
+#header {
+    padding: 30px;
+    background: rgba(30, 41, 59, 0.85);   /* glass effect */
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+a {
+    color: #93c5fd;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== ABOUT ===== */
+#about {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ===== SKILLS ===== */
+.skill {
+    margin: 15px 0;
+}
+
+.progress {
+    width: 100%;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 10px;
+    width: 0; /* important for animation */
+    background: #3b82f6;
+}
+
+/* ===== EDUCATION ===== */
+.edu-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3b82f6;
+    border-radius: 5px;
+}
+
+/* ===== PROJECTS ===== */
+#projects {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ===== CONTACT ===== */
+#contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* BUTTON */
+button {
+    padding: 10px;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #header {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-left img {
+        width: 140px;
+        height: 140px;
+    }
+}

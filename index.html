@@ -1,9 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>My personnel CV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My personnal CV</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 </head>
+
 <body>
-    <h1>Hello, my CV is coming soon</h1>
+
+    <!--  HEADER -->
+    <header id="header">
+        <div class="header-container">
+
+            <div class="header-left">
+                <img src="assets/img.png" alt="Profile Picture">
+                <div class="name">
+                    <h1>AHMED TAMANE</h1>
+                </div>
+            </div>
+            <div class="header-right">
+                
+                <h3>Welcome to my portfolio</h3>
+                <br>
+                <h3>I'm a Computer Science Student</h3>
+                <br>
+                <h3>obssesed with learning anytime</h3>
+                
+            </div>
+        </div>
+    </header>
+
+    <!--ABOUT-->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate student in computer science...
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Aliquid dolore, dignissimos ex ratione odio sint, mollitia dolorem ea nostrum ipsa minus!
+            Consequatur, placeat sunt excepturi dolorem quia alias nobis consectetur?
+        </p>
+
+        <section id="about">
+
+    <div class="about-links">
+        <p>
+            📧 Email: 
+            <a href="mailto:ahmedtamane8@gmail.com">
+                ahmedtamane8@gmail.com
+            </a>
+        </p>
+
+        <p>
+            💻 GitHub: 
+            <a href="https://github.com/Ahmedtamane" target="_blank">
+                https://github.com/Ahmedtamane
+            </a>
+        </p>
+
+        <p>
+            🔗 LinkedIn: 
+            <a href="https://www.linkedin.com/in/ahmed-tamane-5b9b97336/" target="_blank">
+                https://www.linkedin.com/in/ahmed-tamane-5b9b97336/
+            </a>
+        </p>
+    </div>
+</section>
+    </section>
+
+    <!--SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+
+        <div class="skill">
+            <p>HTML</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="90"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>CSS</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="80"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>JavaScript</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="70"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>C++</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="60"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>Python</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="70"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--EDUCATION -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+            <h3>2024 - Présent</h3>
+            <p> Cadi Ayyad University - Computer Science</p>
+        </div>
+
+        <div class="edu-item">
+            <h3>2024</h3>
+            <p>obtention du baccalauréat</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS (React will render here) -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div id="projects-root"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <input type="text" id="number" placeholder="Your Number">
+            <textarea id="message" placeholder="Your Message"></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="react.js"></script>
+
 </body>
+
 </html>
