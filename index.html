@@ -4,40 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My personnal CV</title>
-
+    <title>Ahmed Tamane – Portfolio</title>
     <link rel="stylesheet" href="style.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 </head>
 
 <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#header" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About Me</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#contact" class="nav-link">Contact Me</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+        </ul>
+    </nav>
 
-    <!--  HEADER -->
+    <!-- HEADER -->
     <header id="header">
         <div class="header-container">
-
             <div class="header-left">
-                <img src="assets/img.png" alt="Profile Picture">
+                <!-- Profile image with crossOrigin to allow canvas reading -->
+                <img src="assets/img.png" alt="Profile Picture" crossorigin="anonymous" id="profile-img">
                 <div class="name">
                     <h1>AHMED TAMANE</h1>
                 </div>
             </div>
             <div class="header-right">
-                
                 <h3>Welcome to my portfolio</h3>
-                <br>
                 <h3>I'm a Computer Science Student</h3>
-                <br>
-                <h3>obssesed with learning anytime</h3>
-                
+                <h3>obsessed with learning anytime</h3>
             </div>
         </div>
     </header>
 
-    <!--ABOUT-->
+    <!-- ABOUT -->
     <section id="about">
         <h2>About Me</h2>
         <p>
@@ -46,111 +48,94 @@
             Aliquid dolore, dignissimos ex ratione odio sint, mollitia dolorem ea nostrum ipsa minus!
             Consequatur, placeat sunt excepturi dolorem quia alias nobis consectetur?
         </p>
-
-        <section id="about">
-
-    <div class="about-links">
-        <p>
-            📧 Email: 
-            <a href="mailto:ahmedtamane8@gmail.com">
-                ahmedtamane8@gmail.com
-            </a>
-        </p>
-
-        <p>
-            💻 GitHub: 
-            <a href="https://github.com/Ahmedtamane" target="_blank">
-                https://github.com/Ahmedtamane
-            </a>
-        </p>
-
-        <p>
-            🔗 LinkedIn: 
-            <a href="https://www.linkedin.com/in/ahmed-tamane-5b9b97336/" target="_blank">
-                https://www.linkedin.com/in/ahmed-tamane-5b9b97336/
-            </a>
-        </p>
-    </div>
-</section>
+        <div class="about-links">
+            <p>📧 Email: <a href="mailto:ahmedtamane8@gmail.com">ahmedtamane8@gmail.com</a></p>
+            <p>💻 GitHub: <a href="https://github.com/Ahmedtamane" target="_blank">https://github.com/Ahmedtamane</a>
+            </p>
+            <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/ahmed-tamane-5b9b97336/"
+                    target="_blank">linkedin.com/in/ahmed-tamane</a></p>
+        </div>
     </section>
 
-    <!--SKILLS -->
+    <!-- SKILLS -->
     <section id="skills">
         <h2>Skills</h2>
-
         <div class="skill">
             <p>HTML</p>
             <div class="progress">
                 <div class="progress-bar" data-skill="90"></div>
             </div>
         </div>
-
         <div class="skill">
             <p>CSS</p>
             <div class="progress">
                 <div class="progress-bar" data-skill="80"></div>
             </div>
         </div>
-
         <div class="skill">
             <p>JavaScript</p>
             <div class="progress">
                 <div class="progress-bar" data-skill="70"></div>
             </div>
         </div>
-
         <div class="skill">
             <p>C++</p>
             <div class="progress">
                 <div class="progress-bar" data-skill="60"></div>
             </div>
         </div>
-
         <div class="skill">
             <p>Python</p>
             <div class="progress">
                 <div class="progress-bar" data-skill="70"></div>
             </div>
         </div>
-
-    </section>
-
-    <!--EDUCATION -->
-    <section id="education">
-        <h2>Education</h2>
-
-        <div class="edu-item">
-            <h3>2024 - Présent</h3>
-            <p> Cadi Ayyad University - Computer Science</p>
+        <div class="skill">
+            <p>C</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="75"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <p>Problem Solving</p>
+            <div class="progress">
+                <div class="progress-bar" data-skill="85"></div>
+            </div>
         </div>
 
-        <div class="edu-item">
-            <h3>2024</h3>
-            <p>obtention du baccalauréat</p>
-        </div>
-    </section>
+        <!-- EDUCATION -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="edu-item">
+                <h3>2024 – Present</h3>
+                <p>Cadi Ayyad University – Computer Science</p>
+            </div>
+            <div class="edu-item">
+                <h3>2024</h3>
+                <p> Obtention du mon Baccalauréat - mention Bien</p>
+            </div>
+        </section>
 
-    <!-- PROJECTS (React will render here) -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div id="projects-root"></div>
-    </section>
+        <!-- PROJECTS (React placeholder) -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div id="projects-root"></div>
+        </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact Me</h2>
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <input type="text" id="number" placeholder="Your Number">
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
 
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name">
-            <input type="email" id="email" placeholder="Your Email">
-            <input type="text" id="number" placeholder="Your Number">
-            <textarea id="message" placeholder="Your Message"></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-
-    <script src="script.js"></script>
-    <script src="react.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="script.js"></script>
 
 </body>
 
