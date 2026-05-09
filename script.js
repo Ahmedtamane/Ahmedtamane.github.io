@@ -116,6 +116,11 @@ $(document).ready(function () {
     this.reset();
   });
 
+  // ===== SCROLL TO TOP BUTTON =====
+  $(".scroll-top-btn").on("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, 600);
+  });
+
   // ===== PROJECT CARD HOVER EFFECTS =====
   $(".project-card").hover(
     function () {
@@ -126,4 +131,3 @@ $(document).ready(function () {
     },
   );
 });
-
