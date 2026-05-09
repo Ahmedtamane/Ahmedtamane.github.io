@@ -1,6 +1,33 @@
 $(document).ready(function () {
   console.log("Portfolio loaded successfully!");
 
+  // ===== HAMBURGER MENU TOGGLE =====
+  const hamburger = document.getElementById("hamburger");
+  const navList = document.getElementById("nav-list");
+
+  if (hamburger) {
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("active");
+      navList.classList.toggle("active");
+    });
+
+    // Close menu when a link is clicked
+    navList.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", function () {
+        hamburger.classList.remove("active");
+        navList.classList.remove("active");
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".navbar")) {
+        hamburger.classList.remove("active");
+        navList.classList.remove("active");
+      }
+    });
+  }
+
   const nameElement = $(".name h1");
   const fullName = "Ahmed Tamane";
   let isTypingDone = false;

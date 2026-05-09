@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Tamane - Portfolio</title>
+    <link rel="icon" type="image/png" sizes="40x40" href="assets/img1.png">
+    <link rel="icon" type="image/png" sizes=50x50" href="assets/img1.png">
+    <link rel="shortcut icon" href="assets/img1.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <nav class="navbar">
-        <ul class="nav-list">
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-list" id="nav-list">
             <li><a href="#header" class="nav-link active">Home</a></li>
             <li><a href="#about" class="nav-link">About Me</a></li>
             <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -258,9 +266,9 @@
                 <input type="text" id="subject" placeholder="Subject" required>
             </div>
             <div class="form-group">
-                <textarea id="message" placeholder="Your Message" required></textarea>
+                <textarea id="message" placeholder="something to discuss..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn">Done </button>
         </form>
     </section>
 
@@ -271,7 +279,7 @@
             <span class="quote-author">— Martin Fowler</span>
         </div>
         <div class="footer-bottom">
-            <p class="footer-copy">© 2026 Ahmed Tamane</p>
+            <p class="footer-copy">© 2026 - Ahmed Tamane</p>
             <button type="button" class="scroll-top-btn">Go up</button>
         </div>
     </footer>

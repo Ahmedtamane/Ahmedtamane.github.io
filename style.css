@@ -43,13 +43,45 @@ html {
   backdrop-filter: blur(20px);
   padding: 1rem 2rem;
   z-index: 1000;
-  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
   background: rgba(22, 22, 22, 0.95);
   border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  padding: 0;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .nav-list {
@@ -59,30 +91,32 @@ html {
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  flex: 1;
 }
 
 .nav-link {
   color: var(--text-secondary);
-  text-decoration: none;
+  text-decoration: none !important;
   font-weight: 500;
   font-size: 1rem;
   position: relative;
   transition:
     color 0.3s ease,
-    border-bottom 0.3s ease;
+    border-color 0.3s ease;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+  border-bottom: 2px solid #7c3aed;
 }
 
 .nav-link:hover {
-  color: var(--primary);
-  border-bottom-color: #7c3aed;
-}
-
-.nav-link.active {
-  color: var(--primary);
-  border-bottom-color: #7c3aed;
+  text-decoration: none !important;
 }
 
 /* Floating animation for profile picture */
@@ -449,7 +483,7 @@ a:hover {
   background: linear-gradient(90deg, var(--primary), var(--primary-light));
   border-radius: 4px;
   width: 0;
-  transition: width 1.5s ease-in-out;
+  transition: width 4s ease-out;
 }
 
 /* EDUCATION */
@@ -817,15 +851,52 @@ a:hover {
 
   .navbar {
     padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .nav-list {
-    gap: 1rem;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(22, 22, 22, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    order: 3;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list li {
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
   }
 
   .nav-link {
-    font-size: 0.9rem;
-    padding: 0.5rem;
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: none;
+    border-radius: 0;
+    font-size: 1rem;
+  }
+
+  .nav-link:hover {
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  .nav-link.active {
+    background: rgba(139, 92, 246, 0.2);
+    border-bottom: 3px solid #7c3aed;
   }
 
   #header {
