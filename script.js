@@ -77,7 +77,7 @@ $(document).ready(function () {
 
 	// ===== QUOTE TYPING ANIMATION =====
 	const quoteElement = $("#navbar-quote");
-	const fullQuote = "Practice makes you perfect";
+	const fullQuote = "Practice Makes You Perfect";
 
 	function typeWriterEffectQuote() {
 		quoteElement.text("");

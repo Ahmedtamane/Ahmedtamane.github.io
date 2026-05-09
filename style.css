@@ -49,8 +49,8 @@ html {
 }
 
 .navbar-quote {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  color: #7c3aed;
+  font-size: 1.5rem;
   font-weight: 500;
   text-align: left;
 }
@@ -98,6 +98,7 @@ html {
   max-width: 1200px;
   margin: 0 auto;
   flex: 1;
+  margin-left: 3rem;
 }
 
 .nav-link {
@@ -852,21 +853,7 @@ a:hover {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  body {
-    padding-top: 100px;
-  }
-
-  .navbar {
-    padding: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .navbar-quote {
-    font-size: 1.5rem;
-    color: #7c3aed;
-  }
-
+@media (max-width: 1024px) {
   .hamburger {
     display: flex;
     margin-left: auto;
@@ -882,7 +869,6 @@ a:hover {
     background: rgba(22, 22, 22, 0.98);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(139, 92, 246, 0.2);
-    flex-direction: column;
     gap: 0;
     width: 100%;
   }
@@ -900,7 +886,6 @@ a:hover {
     padding: 1rem 2rem;
     border-bottom: none;
     border-radius: 0;
-    font-size: 1rem;
   }
 
   .nav-link:hover {
@@ -910,6 +895,21 @@ a:hover {
   .nav-link.active {
     background: rgba(139, 92, 246, 0.2);
     border-bottom: 3px solid #7c3aed;
+  }
+
+  .nav-list {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 100px;
+  }
+
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
   }
 
   #header {
@@ -992,5 +992,9 @@ a:hover {
 
   .timeline-content {
     width: 100%;
+  }
+
+  .nav-list {
+    margin-left: 0;
   }
 }
