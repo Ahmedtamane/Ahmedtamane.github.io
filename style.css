@@ -39,10 +39,16 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(22, 22, 22, 0.95);
+  background: rgba(22, 22, 22, 0.4);
   backdrop-filter: blur(20px);
   padding: 1rem 2rem;
   z-index: 1000;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(22, 22, 22, 0.95);
   border-bottom: 1px solid rgba(139, 92, 246, 0.2);
 }
 
@@ -61,34 +67,22 @@ html {
   font-weight: 500;
   font-size: 1rem;
   position: relative;
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    border-bottom 0.3s ease;
   padding: 0.5rem 1rem;
   border-radius: 8px;
+  border-bottom: 2px solid transparent;
 }
 
 .nav-link:hover {
   color: var(--primary);
+  border-bottom-color: #7c3aed;
 }
 
 .nav-link.active {
   color: var(--primary);
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
+  border-bottom-color: #7c3aed;
 }
 
 /* Floating animation for profile picture */
@@ -124,6 +118,22 @@ section {
 }
 
 .section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal animation classes for individual elements */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  --animation-delay: 0ms;
+  transition:
+    opacity 0.9s ease-out,
+    transform 0.9s ease-out;
+  transition-delay: var(--animation-delay);
+}
+
+.reveal-element.revealed {
   opacity: 1;
   transform: translateY(0);
 }
@@ -719,23 +729,21 @@ a:hover {
   color: var(--text-secondary);
 }
 
-/* Typing cursor animation */
-@keyframes blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.typing-cursor {
-  display: inline;
+.blinking-cursor {
   animation: blink 1s infinite;
   color: var(--primary);
   font-weight: 700;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes pageFadeIn {

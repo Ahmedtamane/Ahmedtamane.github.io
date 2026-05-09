@@ -1,7 +1,6 @@
 $(document).ready(function () {
   console.log("Portfolio loaded successfully!");
 
-  // ===== TYPING ANIMATION FOR NAME =====
   const nameElement = $(".name h1");
   const fullName = "Ahmed Tamane";
   let isTypingDone = false;
@@ -9,16 +8,37 @@ $(document).ready(function () {
   function typeWriterEffect() {
     nameElement.text("");
     let charIndex = 0;
+    let isDeleting = false;
 
     function typeChar() {
-      if (charIndex < fullName.length) {
-        nameElement.text(fullName.substring(0, charIndex + 1));
-        charIndex++;
-        setTimeout(typeChar, 200);
+      if (!isDeleting) {
+        // Typing forward
+        if (charIndex < fullName.length) {
+          nameElement.html(
+            fullName.substring(0, charIndex + 1) +
+              '<span class="blinking-cursor">|</span>',
+          );
+          charIndex++;
+          setTimeout(typeChar, 150);
+        } else {
+          // Finished typing, start deleting
+          isDeleting = true;
+          setTimeout(typeChar, 1000); // you have to pause before deleting
+        }
       } else {
-        isTypingDone = true;
-        // Add blinking cursor after typing is complete
-        nameElement.append('<span class="typing-cursor">|</span>');
+        // deleting backwards
+        if (charIndex > 0) {
+          nameElement.html(
+            fullName.substring(0, charIndex - 1) +
+              '<span class="blinking-cursor">|</span>',
+          );
+          charIndex--;
+          setTimeout(typeChar, 100);
+        } else {
+          // Finished deleting, restart
+          isDeleting = false;
+          setTimeout(typeChar, 500); // you've to pause before restarting
+        }
       }
     }
 
@@ -69,21 +89,39 @@ $(document).ready(function () {
     }
   });
 
-  // ===== ACTIVE NAVIGATION HIGHLIGHTING =====
+  // ===== ACTIVE NAVIGATION HIGHLIGHTING & NAVBAR TRANSPARENCY =====
+  let headerHeight = $("#header").outerHeight();
+
   $(window).on("scroll", function () {
-    const scrollPos = $(window).scrollTop() + 100;
+    const scrollTop = $(window).scrollTop();
 
-    $("section").each(function () {
-      const section = $(this);
-      const sectionTop = section.offset().top;
-      const sectionBottom = sectionTop + section.outerHeight();
+    // Navbar transparency: transparent at top, solid when scrolled down
+    if (scrollTop > 50) {
+      $(".navbar").addClass("scrolled");
+    } else {
+      $(".navbar").removeClass("scrolled");
+    }
 
-      if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-        const id = section.attr("id");
-        $(".nav-link").removeClass("active");
-        $(`.nav-link[href="#${id}"]`).addClass("active");
-      }
-    });
+    // Update active nav only after scrolling past header
+    if (scrollTop > headerHeight - 200) {
+      const scrollPos = scrollTop + 100;
+
+      $("section").each(function () {
+        const section = $(this);
+        const sectionTop = section.offset().top;
+        const sectionBottom = sectionTop + section.outerHeight();
+
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          const id = section.attr("id");
+          $(".nav-link").removeClass("active");
+          $(`.nav-link[href="#${id}"]`).addClass("active");
+        }
+      });
+    } else {
+      // Keep Home active when near top
+      $(".nav-link").removeClass("active");
+      $('a[href="#header"]').addClass("active");
+    }
   });
 
   // ===== ANIMATE SKILL BARS ON SCROLL =====
@@ -130,4 +168,62 @@ $(document).ready(function () {
       $(this).removeClass("hovered");
     },
   );
+});
+
+// ===== INTERSECTION OBSERVER FOR REVEAL ANIMATIONS =====
+// Add reveal-element class to all relevant elements
+document.addEventListener("DOMContentLoaded", function () {
+  // Target all elements that should have reveal animation
+  const elementsToAnimate = document.querySelectorAll(
+    "#header, .header-left, .header-right, .section-header h2, .section-header .subtitle, .about-card, .skill-category, .project-card, .form-group, .timeline-content, .project-image img, .footer",
+  );
+
+  elementsToAnimate.forEach((el) => {
+    el.classList.add("reveal-element");
+  });
+
+  // Group elements by parent for proper staggering
+  const parentGroups = {};
+  elementsToAnimate.forEach((el) => {
+    const parent = el.closest("section, .footer, #header") || el.parentElement;
+    const parentKey = parent.id || parent.className;
+    if (!parentGroups[parentKey]) {
+      parentGroups[parentKey] = [];
+    }
+    parentGroups[parentKey].push(el);
+  });
+
+  // Re-index children for proper staggering within each section
+  Object.values(parentGroups).forEach((group) => {
+    group.forEach((el, index) => {
+      el.style.setProperty("--stagger-index", index);
+      // Increase stagger delay for more sequential appearance, especially for about cards
+      const delay = el.classList.contains("about-card")
+        ? index * 600
+        : index * 120;
+      el.style.setProperty("--animation-delay", `${delay}ms`);
+    });
+  });
+
+  // Create intersection observer
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          // Stop observing after reveal
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
+
+  // Observe all elements
+  elementsToAnimate.forEach((el) => {
+    revealObserver.observe(el);
+  });
 });
