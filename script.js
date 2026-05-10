@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	console.log("Portfolio loaded successfully!");
 
-	// ===== HAMBURGER MENU TOGGLE =====
+	// header menu toggle
 	const hamburger = document.getElementById("hamburger");
 	const navList = document.getElementById("nav-list");
 
@@ -97,7 +97,7 @@ $(document).ready(function () {
 				} else {
 					// Finished typing, start deleting
 					isDeleting = true;
-					setTimeout(typeChar, 1000); // pause before deleting
+					setTimeout(typeChar, 2000); // pause before deleting
 				}
 			} else {
 				// deleting backwards
@@ -138,14 +138,12 @@ $(document).ready(function () {
 			}
 		});
 	}
-
-	// Reveal sections on scroll
 	$(window).on("scroll", revealSections);
 
 	// Reveal sections that are already in view on page load
 	revealSections();
 
-	// Set Home as active by default
+	// Set home as active by default
 	$(".nav-link").removeClass("active");
 	$('a[href="#header"]').addClass("active");
 
@@ -296,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		},
 	);
 
-	// Observe all elements
+	// observe all elements
 	elementsToAnimate.forEach((el) => {
 		revealObserver.observe(el);
 	});
