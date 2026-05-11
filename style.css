@@ -45,8 +45,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   transition: all 0.4s ease;
-  position: relaive;
 }
 
 .navbar-quote {
@@ -100,10 +100,13 @@ html {
   list-style: none;
   gap: 2rem;
   margin: 0;
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-left: auto;
+  align-items: center;
+  justify-content: flex-end;
+  position: static;
+  right: auto;
+  top: auto;
+  transform: none;
 }
 
 .nav-link {
@@ -495,7 +498,8 @@ a:hover {
   background: linear-gradient(90deg, var(--primary), var(--primary-light));
   border-radius: 4px;
   width: 0;
-  transition: width 4s ease-out;
+  transition: width 4s ease;
+  will-change: width;
 }
 
 /* EDUCATION */
@@ -867,6 +871,7 @@ a:hover {
   .nav-list {
     display: none;
     flex-direction: column;
+    align-items: flex-start;
     position: absolute;
     top: 100%;
     left: 0;
@@ -876,6 +881,7 @@ a:hover {
     border-bottom: 1px solid rgba(139, 92, 246, 0.2);
     gap: 0;
     width: 100%;
+    padding-left: 0.75rem;
   }
 
   .nav-list.active {
@@ -884,15 +890,18 @@ a:hover {
 
   .nav-list li {
     border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    width: 100%;
   }
 
   .nav-link {
     display: block;
+    width: 100%;
     padding: 1rem 2rem;
     border-bottom: none;
     border-radius: 0;
   }
 
+  .nav-list li:hover,
   .nav-link:hover {
     background: rgba(139, 92, 246, 0.1);
   }
